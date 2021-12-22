@@ -1,28 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter,Route,Link } from 'react-router-dom'
+import { BrowserRouter, Route, NavLink, Switch, Redirect } from 'react-router-dom'
 
 import Home from './components/home';
 import Posts from './components/posts';
 import Profile from './components/profile';
-
+import PostItem from './components/post_item';
+import NotFound from './components/404';
 
 const App = () => {
   return(
     <BrowserRouter>
       <header>
-        <Link to="/">Home</Link>
-        <Link to="/posts">Posts</Link>
-        <Link to={{
-          pathname: '/profile',
-          hash: "#francis",
-          search: '?profile=true'
-        }}>Profile</Link>
+        <NavLink to="/" exact activeStyle={{ color: 'red' }}
+          activeClassName="selected">Home</NavLink><br />
+        
+        <NavLink to="/posts" activeStyle={{ color: 'red' }}
+          activeClassName="selected">Posts</NavLink><br />
+        
+        <NavLink to="/profile" activeStyle={{ color: 'red' }}
+        activeClassName="selected">Profile</NavLink><br />
         <br/><br/><br/>
       </header>
-      <Route path="/" exact component={Home} />
-      <Route path="/posts" exact component={Posts} />
-      <Route path="/profile" exact component={Profile} />
+      <Switch>
+        <Route path="/posts/:id" component={PostItem} />
+        <Route path="/posts"  component={Posts} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/" exact component={Home} />
+        {/* <Route component={NotFound}/> */}
+        <Route render={()=><h3>Oops, page not found</h3> }/>
+      </Switch>
     </BrowserRouter>
   )
 }

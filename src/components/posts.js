@@ -1,8 +1,13 @@
 import React from 'react';
+import PostHeader from './post_header'
 
-const Posts = () => {
+const Posts = (props) => {
+  // console.log(props);
   return (
-    <div>Posts</div>
+    <div>
+      <PostHeader />
+      Posts
+    </div>
   )
 }
 
