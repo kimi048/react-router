@@ -7,6 +7,8 @@ import Posts from './components/posts';
 import Profile from './components/profile';
 import PostItem from './components/post_item';
 import NotFound from './components/404';
+import Conditional from "./components/conditional";
+import PureComp from './components/pureComp';
 
 const App = () => {
   return(
@@ -18,13 +20,21 @@ const App = () => {
         <NavLink to="/posts" activeStyle={{ color: 'red' }}
           activeClassName="selected">Posts</NavLink><br />
         
+        <NavLink to="/conditional" activeStyle={{ color: 'red' }}
+          activeClassName="selected">Conditional</NavLink><br />
+        
+        <NavLink to="/purecomp" activeStyle={{ color: 'red' }}
+          activeClassName="selected">Pure Comp</NavLink><br />
+        
         <NavLink to="/profile" activeStyle={{ color: 'red' }}
         activeClassName="selected">Profile</NavLink><br />
         <br/><br/><br/>
       </header>
       <Switch>
         <Route path="/posts/:id" component={PostItem} />
-        <Route path="/posts"  component={Posts} />
+        <Route path="/posts" component={Posts} />
+        <Route path="/conditional" component={Conditional} />
+        <Route path="/purecomp" component={PureComp} />
         <Route path="/profile" component={Profile} />
         <Route path="/" exact component={Home} />
         {/* <Route component={NotFound}/> */}
