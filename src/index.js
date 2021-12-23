@@ -9,6 +9,7 @@ import PostItem from './components/post_item';
 import NotFound from './components/404';
 import Conditional from "./components/conditional";
 import PureComp from './components/pureComp';
+import UserComp from './components/user'
 
 const App = () => {
   return(
@@ -26,6 +27,9 @@ const App = () => {
         <NavLink to="/purecomp" activeStyle={{ color: 'red' }}
           activeClassName="selected">Pure Comp</NavLink><br />
         
+        <NavLink to="/usercomp" activeStyle={{ color: 'red' }}
+          activeClassName="selected">User Comp</NavLink><br />
+        
         <NavLink to="/profile" activeStyle={{ color: 'red' }}
         activeClassName="selected">Profile</NavLink><br />
         <br/><br/><br/>
@@ -35,6 +39,7 @@ const App = () => {
         <Route path="/posts" component={Posts} />
         <Route path="/conditional" component={Conditional} />
         <Route path="/purecomp" component={PureComp} />
+        <Route path="/usercomp" component={UserComp} />
         <Route path="/profile" component={Profile} />
         <Route path="/" exact component={Home} />
         {/* <Route component={NotFound}/> */}

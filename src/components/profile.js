@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Card from './hoc/card';
+import Auth from './hoc/auth';
 
 const Profile = (props) => {
   // console.log(props);
@@ -17,6 +19,12 @@ const Profile = (props) => {
 
   return (
     <>
+      <Auth>
+        <Card>
+          hello from card
+        </Card>
+      </Auth>
+      
       <button onClick={()=>redirectUser()}>
         Redirect
       </button>
